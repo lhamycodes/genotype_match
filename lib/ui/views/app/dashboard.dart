@@ -57,7 +57,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     ],
                   ),
-                  verticalSpace(15),
+                  verticalSpace(20),
                   Row(
                     children: <Widget>[
                       ActionCard(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../shared/app_colors.dart';
 import '../shared/ui_helpers.dart';
 
 class ActionCard extends StatelessWidget {
@@ -47,11 +48,12 @@ class ActionCard extends StatelessWidget {
             ],
           ),
         ),
-        elevation: 10,
+        elevation: 11,
         margin: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
+        shadowColor: primaryColor,
       ),
     );
   }
