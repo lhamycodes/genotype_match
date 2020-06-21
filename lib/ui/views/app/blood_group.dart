@@ -124,24 +124,24 @@ class _BloodGroupScreenState extends State<BloodGroupScreen> {
                                 children: <Widget>[
                                   AddAction(
                                     label: "My Blood Group",
-                                    title: model.p1?.name ?? null,
+                                    title: model.g1?.name ?? null,
                                     onTap: () {
-                                      model.select(model.p1, context);
+                                      model.select(model.g1, context);
                                     },
-                                    bgColor: model.p1?.color ?? grey,
+                                    bgColor: model.g1?.color ?? grey,
                                   ),
                                   AddAction(
                                     label: "My Patner's",
-                                    title: model.p2?.name ?? null,
+                                    title: model.g2?.name ?? null,
                                     onTap: () {
-                                      model.select(model.p2, context);
+                                      model.select(model.g2, context);
                                     },
-                                    bgColor: model.p2?.color ?? grey,
+                                    bgColor: model.g2?.color ?? grey,
                                   ),
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 35),
+                                padding: EdgeInsets.only(left: 42, right: 35),
                                 child: Container(color: grey, height: 1.2),
                               ),
                               VerticalDivide(height: 40),

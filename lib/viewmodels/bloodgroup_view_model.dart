@@ -4,12 +4,11 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import 'base_model.dart';
 import '../locator.dart';
-import '../models/genotype.dart';
+import '../models/blood_group.dart';
 import '../services/navigation_service.dart';
 import '../ui/shared/app_colors.dart';
-import '../ui/views/app/blood_group.dart';
 import '../ui/views/app/dashboard.dart';
-import '../ui/views/modals/genotype_picker.dart';
+import '../ui/views/modals/bloodgroup_picker.dart';
 
 class BloodGroupViewModel extends BaseModel {
   final NavigationService _navigationService = locator<NavigationService>();
@@ -17,33 +16,36 @@ class BloodGroupViewModel extends BaseModel {
   IconData resultIcon = FeatherIcons.loader;
   Color resultColor = green;
 
-  List<Genotype> _genotypes = [
-    Genotype(name: "AA", color: Colors.lightBlue),
-    Genotype(name: "AS", color: Colors.lightGreen),
-    Genotype(name: "SS", color: Colors.orange),
-    Genotype(name: "SC", color: Colors.red),
-    Genotype(name: "CC", color: Colors.brown),
+  List<BloodGroup> _bloodGroups = [
+    BloodGroup(name: "O-", color: Colors.lightBlue),
+    BloodGroup(name: "O+", color: Colors.lightGreen),
+    BloodGroup(name: "A-", color: Colors.orange),
+    BloodGroup(name: "A+", color: Colors.red),
+    BloodGroup(name: "B", color: Colors.brown),
+    BloodGroup(name: "B+", color: Colors.lightBlue),
+    BloodGroup(name: "AB+", color: Colors.lightGreen),
+    BloodGroup(name: "AB-", color: Colors.orange),
   ];
-  List<Genotype> get genotypes => _genotypes;
+  List<BloodGroup> get bloodGroups => _bloodGroups;
 
-  Genotype _p1, _p2;
-  Genotype get p1 => _p1;
-  Genotype get p2 => _p2;
+  BloodGroup _g1, _g2;
+  BloodGroup get g1 => _g1;
+  BloodGroup get g2 => _g2;
 
-  select(Genotype gen, ctx) {
+  select(BloodGroup bGrp, ctx) {
     showBarModalBottomSheet(
       expand: false,
       context: ctx,
       backgroundColor: Colors.transparent,
-      builder: (context, scrollController) => GenotypePicker(
+      builder: (context, scrollController) => BloodGroupPicker(
         scrollController: scrollController,
-        genotypes: genotypes,
-        genotype: gen,
-        onSelect: (Genotype genotype) {
-          if (gen == p1) {
-            p1 = genotype;
+        bloodGroups: bloodGroups,
+        bloodGroup: bGrp,
+        onSelect: (BloodGroup bloodGroup) {
+          if (bGrp == g1) {
+            g1 = bloodGroup;
           } else {
-            p2 = genotype;
+            g2 = bloodGroup;
           }
           Navigator.of(context).pop();
         },
@@ -51,27 +53,27 @@ class BloodGroupViewModel extends BaseModel {
     );
   }
 
-  set p1(Genotype genotype) {
-    _p1 = genotype;
+  set g1(BloodGroup bloodGroup) {
+    _g1 = bloodGroup;
     notifyListeners();
   }
 
-  set p2(Genotype genotype) {
-    _p2 = genotype;
+  set g2(BloodGroup bloodGroup) {
+    _g2 = bloodGroup;
     notifyListeners();
   }
 
   void computeMatch() {
-    if (p1 == null) {
-      validate(p1);
+    if (g1 == null) {
+      validate(g1);
       return;
     }
-    if (p2 == null) {
-      validate(p2);
+    if (g2 == null) {
+      validate(g2);
       return;
     }
 
-    if (p1.name == "AA" || p2.name == "AA") {
+    if (g1.name == "AA" || g2.name == "AA") {
       resultColor = Colors.green;
       resultIcon = FeatherIcons.check;
     } else {
@@ -83,9 +85,9 @@ class BloodGroupViewModel extends BaseModel {
     return;
   }
 
-  validate(Genotype gen) {
+  validate(BloodGroup bGrp) {
     String prefix = "";
-    if (gen == p1) {
+    if (bGrp == g1) {
       prefix = "Your";
     } else {
       prefix = "Your Partners";
