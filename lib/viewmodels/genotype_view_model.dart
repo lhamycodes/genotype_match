@@ -34,13 +34,15 @@ class GenotypeViewModel extends BaseModel {
 
   void computeMatch() {
     if (p1 == null) {
+      validate(p1);
       return;
     }
     if (p2 == null) {
+      validate(p2);
       return;
     }
 
-    if(p1.name == "AA" || p2.name == "AA"){
+    if (p1.name == "AA" || p2.name == "AA") {
       resultColor = Colors.green;
       resultIcon = FeatherIcons.check;
     } else {
@@ -49,5 +51,21 @@ class GenotypeViewModel extends BaseModel {
     }
 
     return;
+  }
+
+  validate(Genotype gen) {
+    String prefix = "";
+    if (gen == p1) {
+      prefix = "Your";
+    } else {
+      prefix = "Your Partners";
+    }
+    setShowAlertDialog(
+      true,
+      message: "$prefix genotype is required",
+      onClose: () {
+        setShowAlertDialog(false);
+      },
+    );
   }
 }
