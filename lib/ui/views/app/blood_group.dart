@@ -123,7 +123,7 @@ class _BloodGroupScreenState extends State<BloodGroupScreen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   AddAction(
-                                    label: "My Blood Group",
+                                    label: "Donor's Blood Group",
                                     title: model.g1?.name ?? null,
                                     onTap: () {
                                       model.select(model.g1, context);
@@ -131,7 +131,7 @@ class _BloodGroupScreenState extends State<BloodGroupScreen> {
                                     bgColor: model.g1?.color ?? grey,
                                   ),
                                   AddAction(
-                                    label: "My Patner's",
+                                    label: "Receivers Blood Group",
                                     title: model.g2?.name ?? null,
                                     onTap: () {
                                       model.select(model.g2, context);
@@ -141,7 +141,7 @@ class _BloodGroupScreenState extends State<BloodGroupScreen> {
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsets.only(left: 42, right: 35),
+                                padding: EdgeInsets.only(left: 55, right: 60),
                                 child: Container(color: grey, height: 1.2),
                               ),
                               VerticalDivide(height: 40),

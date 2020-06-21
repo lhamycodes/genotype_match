@@ -73,7 +73,27 @@ class BloodGroupViewModel extends BaseModel {
       return;
     }
 
-    if (g1.name == "AA" || g2.name == "AA") {
+    String genDonor = "O-";
+    String genReceiver = "AB+";
+    List apList = ["O+", "A-"];
+    List bpList = ["O+", "B-"];
+    List abmList = ["A-", "B-"];
+
+    resultColor = red;
+    resultIcon = FeatherIcons.x;
+
+    if (g1.name == g2.name ||
+        (g1.name == genDonor) ||
+        (g2.name == genReceiver)) {
+      resultColor = Colors.green;
+      resultIcon = FeatherIcons.check;
+    } else if (apList.contains(g1.name) && g2.name == "A+") {
+      resultColor = Colors.green;
+      resultIcon = FeatherIcons.check;
+    } else if (bpList.contains(g1.name) && g2.name == "B+") {
+      resultColor = Colors.green;
+      resultIcon = FeatherIcons.check;
+    } else if (abmList.contains(g1.name) && g2.name == "AB-") {
       resultColor = Colors.green;
       resultIcon = FeatherIcons.check;
     } else {
