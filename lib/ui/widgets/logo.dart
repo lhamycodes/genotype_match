@@ -32,7 +32,6 @@ class Logo extends StatelessWidget {
       ),
       child: SvgPicture.asset(
         'assets/images/$logoName.svg',
-        width: 40,
         color: logoColor,
       ),
     );

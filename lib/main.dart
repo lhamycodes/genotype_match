@@ -43,6 +43,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: primaryColor,
         textTheme: GoogleFonts.manropeTextTheme(),
+        primaryTextTheme: GoogleFonts.manropeTextTheme(),
         accentColor: primaryColor,
         indicatorColor: primaryColor,
         brightness: Brightness.light,
