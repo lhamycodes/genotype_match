@@ -14,7 +14,7 @@ class GenotypeViewModel extends BaseModel {
     Genotype(name: "AS", color: Colors.lightGreen),
     Genotype(name: "SS", color: Colors.orange),
     Genotype(name: "SC", color: Colors.red),
-    Genotype(name: "CC", color: Colors.amber),
+    Genotype(name: "CC", color: Colors.brown),
   ];
   List<Genotype> get genotypes => _genotypes;
 

@@ -131,7 +131,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     label: "My Patner's",
                                     title: model.p2?.name ?? null,
                                     onTap: () {
-                                      model.p2 = model.genotypes[2];
+                                      model.p2 = model.genotypes[4];
                                     },
                                     bgColor: model.p2?.color ?? grey,
                                   ),
