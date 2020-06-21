@@ -1,10 +1,7 @@
 
 import '../locator.dart';
-
 import '../services/navigation_service.dart';
-
 import '../ui/views/app/dashboard.dart';
-
 import '../viewmodels/base_model.dart';
 
 class StartUpViewModel extends BaseModel {

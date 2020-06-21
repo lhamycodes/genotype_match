@@ -65,11 +65,13 @@ class AddAction extends StatelessWidget {
           child: SizedBox(
             width: 56,
             height: 56,
-            child: Icon(
-              icon,
-              color: Colors.white,
-              size: 25,
-            ),
+            child: title.isNullOrEmpty()
+                ? Icon(
+                    icon,
+                    color: Colors.white,
+                    size: 25,
+                  )
+                : Text(title),
           ),
           onTap: onTap,
         ),
