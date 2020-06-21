@@ -9,20 +9,20 @@ import '../../widgets/action_card.dart';
 import '../../widgets/add_action.dart';
 import '../../widgets/logo.dart';
 import '../../widgets/vertical_divide.dart';
-import '../../../viewmodels/genotype_view_model.dart';
+import '../../../viewmodels/bloodgroup_view_model.dart';
 
-class DashboardScreen extends StatefulWidget {
-  static const routeName = '/app/dashboard';
+class BloodGroupScreen extends StatefulWidget {
+  static const routeName = '/app/blood-group';
 
   @override
-  _DashboardScreenState createState() => _DashboardScreenState();
+  _BloodGroupScreenState createState() => _BloodGroupScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _BloodGroupScreenState extends State<BloodGroupScreen> {
   @override
   Widget build(BuildContext context) {
-    return ViewModelProvider<GenotypeViewModel>.withConsumer(
-      viewModel: GenotypeViewModel(),
+    return ViewModelProvider<BloodGroupViewModel>.withConsumer(
+      viewModel: BloodGroupViewModel(),
       onModelReady: (model) => {},
       builder: (context, model, child) => AlertOverlay(
         show: model.showAlertDialog,
@@ -78,18 +78,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       Row(
                         children: <Widget>[
                           ActionCard(
-                            bgColor: primaryColor,
-                            textColor: Colors.white,
+                            bgColor: Colors.white,
+                            textColor: primaryColor,
+                            iconColor: primaryColor,
                             title: "Genotype Match Checker",
                             icon: "gmc",
+                            onTap: () => model.toDashboard(),
                           ),
                           horizontalSpace(12),
                           ActionCard(
-                            bgColor: Colors.white,
-                            textColor: primaryColor,
+                            bgColor: primaryColor,
+                            textColor: Colors.white,
+                            iconColor: Colors.white,
                             title: "Blood Group Compatibility",
                             icon: "bgc",
-                            onTap: () => model.toBGC(),
                           ),
                         ],
                       )
@@ -121,7 +123,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   AddAction(
-                                    label: "My Genotype",
+                                    label: "My Blood Group",
                                     title: model.p1?.name ?? null,
                                     onTap: () {
                                       model.select(model.p1, context);

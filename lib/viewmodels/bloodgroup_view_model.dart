@@ -8,9 +8,10 @@ import '../models/genotype.dart';
 import '../services/navigation_service.dart';
 import '../ui/shared/app_colors.dart';
 import '../ui/views/app/blood_group.dart';
+import '../ui/views/app/dashboard.dart';
 import '../ui/views/modals/genotype_picker.dart';
 
-class GenotypeViewModel extends BaseModel {
+class BloodGroupViewModel extends BaseModel {
   final NavigationService _navigationService = locator<NavigationService>();
 
   IconData resultIcon = FeatherIcons.loader;
@@ -91,14 +92,16 @@ class GenotypeViewModel extends BaseModel {
     }
     setShowAlertDialog(
       true,
-      message: "$prefix genotype is required",
+      message: "$prefix blood group is required",
       onClose: () {
         setShowAlertDialog(false);
       },
     );
   }
 
-  void toBGC() {
-    _navigationService.navigateTo(BloodGroupScreen.routeName);
+  toDashboard() {
+    _navigationService.navigateAndClearRoute(
+      DashboardScreen.routeName,
+    );
   }
 }
