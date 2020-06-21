@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:genotypematch/ui/shared/app_colors.dart';
-import 'package:genotypematch/ui/shared/ui_helpers.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 
+import '../../shared/app_colors.dart';
+import '../../shared/ui_helpers.dart';
+import '../../widgets/logo.dart';
 import '../../../viewmodels/startup_view_model.dart';
 
 class StartUpScreen extends StatefulWidget {
@@ -36,8 +36,7 @@ class _StartUpScreenState extends State<StartUpScreen>
 
     return ViewModelProvider<StartUpViewModel>.withConsumer(
       viewModel: StartUpViewModel(),
-      // onModelReady: (model) => model.handleStartUpLogic(),
-      onModelReady: (model) => {},
+      onModelReady: (model) => model.handleStartUpLogic(),
       builder: (context, model, child) => AnimatedBuilder(
         animation: animationController,
         builder: (BuildContext ctx, Widget child) {
@@ -67,24 +66,11 @@ class _StartUpScreenState extends State<StartUpScreen>
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Container(
-                        width: 103,
-                        height: 103,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(70),
-                            topRight: Radius.circular(20),
-                            bottomLeft: Radius.circular(70),
-                            bottomRight: Radius.circular(70),
-                          ),
-                          color: Colors.white,
-                        ),
-                        child: SvgPicture.asset(
-                          'assets/images/blood-drop-blue.svg',
-                          width: 40,
-                          color: primaryColor,
-                        ),
+                      Logo(
+                        bgColor: Colors.white,
+                        logoColor: primaryColor,
+                        logoName: "blood-drop-blue",
+                        size: 103,
                       ),
                       verticalSpace(15),
                       Text(
