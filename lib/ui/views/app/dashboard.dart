@@ -124,7 +124,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     title: model.p1?.name ?? null,
                                     onTap: () {
                                       model.select(model.p1, context);
-                                      // model.p1 = model.genotypes[0];
                                     },
                                     bgColor: model.p1?.color ?? grey,
                                   ),
@@ -132,7 +131,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     label: "My Patner's",
                                     title: model.p2?.name ?? null,
                                     onTap: () {
-                                      model.p2 = model.genotypes[4];
+                                      model.select(model.p2, context);
                                     },
                                     bgColor: model.p2?.color ?? grey,
                                   ),

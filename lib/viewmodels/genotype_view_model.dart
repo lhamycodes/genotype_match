@@ -34,11 +34,12 @@ class GenotypeViewModel extends BaseModel {
         genotypes: genotypes,
         genotype: gen,
         onSelect: (Genotype genotype) {
-          // if (gen == p1) {
-          //   p1 = genotype;
-          // } else {
-          //   p2 = genotype;
-          // }
+          if (gen == p1) {
+            p1 = genotype;
+          } else {
+            p2 = genotype;
+          }
+          Navigator.of(context).pop();
         },
       ),
     );
