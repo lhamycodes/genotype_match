@@ -45,6 +45,7 @@ class _StartUpScreenState extends State<StartUpScreen>
             backgroundColor: primaryColor,
             body: SafeArea(
               bottom: false,
+              top: false,
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
