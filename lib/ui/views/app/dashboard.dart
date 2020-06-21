@@ -123,7 +123,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     label: "My Genotype",
                                     title: model.p1?.name ?? null,
                                     onTap: () {
-                                      model.p1 = model.genotypes[0];
+                                      model.select(model.p1, context);
+                                      // model.p1 = model.genotypes[0];
                                     },
                                     bgColor: model.p1?.color ?? grey,
                                   ),

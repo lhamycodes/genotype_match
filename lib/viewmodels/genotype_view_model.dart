@@ -1,9 +1,11 @@
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import 'base_model.dart';
 import '../models/genotype.dart';
 import '../ui/shared/app_colors.dart';
+import '../ui/views/modals/genotype_picker.dart';
 
 class GenotypeViewModel extends BaseModel {
   IconData resultIcon = FeatherIcons.loader;
@@ -21,6 +23,26 @@ class GenotypeViewModel extends BaseModel {
   Genotype _p1, _p2;
   Genotype get p1 => _p1;
   Genotype get p2 => _p2;
+
+  select(Genotype gen, ctx) {
+    showBarModalBottomSheet(
+      expand: false,
+      context: ctx,
+      backgroundColor: Colors.transparent,
+      builder: (context, scrollController) => GenotypePicker(
+        scrollController: scrollController,
+        genotypes: genotypes,
+        genotype: gen,
+        onSelect: (Genotype genotype) {
+          // if (gen == p1) {
+          //   p1 = genotype;
+          // } else {
+          //   p2 = genotype;
+          // }
+        },
+      ),
+    );
+  }
 
   set p1(Genotype genotype) {
     _p1 = genotype;
