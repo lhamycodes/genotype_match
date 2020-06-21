@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:genotypematch/ui/shared/app_colors.dart';
-import 'package:genotypematch/ui/widgets/logo.dart';
+
+import '../../shared/app_colors.dart';
+import '../../shared/ui_helpers.dart';
+import '../../widgets/action_card.dart';
+import '../../widgets/logo.dart';
 
 class DashboardScreen extends StatefulWidget {
   static const routeName = '/app/dashboard';
+
   @override
   _DashboardScreenState createState() => _DashboardScreenState();
 }
@@ -16,6 +20,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: Column(
           children: <Widget>[
             Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 6.0,
+                    color: Color(0xFFDBD9E1),
+                    offset: Offset(6.0, 7.0),
+                  ),
+                ],
+                color: Colors.white,
+              ),
               padding: EdgeInsets.only(
                 top: 20,
                 bottom: 30,
@@ -40,6 +54,24 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         size: 45,
                         bgColor: primaryColor,
                         logoColor: Colors.white,
+                      ),
+                    ],
+                  ),
+                  verticalSpace(15),
+                  Row(
+                    children: <Widget>[
+                      ActionCard(
+                        bgColor: primaryColor,
+                        textColor: Colors.white,
+                        title: "Genotype Match Checker",
+                        icon: "gmc",
+                      ),
+                      horizontalSpace(12),
+                      ActionCard(
+                        bgColor: Colors.white,
+                        textColor: primaryColor,
+                        title: "Blood Group Compatibility",
+                        icon: "bgc",
                       ),
                     ],
                   )
