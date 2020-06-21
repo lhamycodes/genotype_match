@@ -64,6 +64,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.3"
+  dotted_border:
+    dependency: "direct main"
+    description:
+      name: dotted_border
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.5"
+  feather_icons_flutter:
+    dependency: "direct main"
+    description:
+      name: feather_icons_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.7.4"
   file:
     dependency: transitive
     description:

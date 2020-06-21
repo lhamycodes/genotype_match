@@ -1,9 +1,13 @@
+import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/app_colors.dart';
 import '../../shared/ui_helpers.dart';
+
 import '../../widgets/action_card.dart';
+import '../../widgets/add_action.dart';
 import '../../widgets/logo.dart';
+import '../../widgets/vertical_divide.dart';
 
 class DashboardScreen extends StatefulWidget {
   static const routeName = '/app/dashboard';
@@ -17,6 +21,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        bottom: false,
         child: Column(
           children: <Widget>[
             Container(
@@ -76,6 +81,59 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ],
                   )
                 ],
+              ),
+            ),
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/patternbg.png"),
+                    repeat: ImageRepeat.repeat,
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(0.07),
+                      BlendMode.dstATop,
+                    ),
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 70),
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              AddAction(label: "My Genotype"),
+                              AddAction(label: "My Patner's"),
+                            ],
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 35),
+                            child: Container(color: grey, height: 1.2),
+                          ),
+                          VerticalDivide(height: 40),
+                          Container(
+                            height: Theme.of(context).buttonTheme.height,
+                            child: RaisedButton(
+                              child: Text("Match Status"),
+                              onPressed: () {},
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    VerticalDivide(height: 100),
+                    AddAction(
+                      icon: FeatherIcons.loader,
+                      bgColor: red,
+                      border: false,
+                    ),
+                  ],
+                ),
               ),
             )
           ],
