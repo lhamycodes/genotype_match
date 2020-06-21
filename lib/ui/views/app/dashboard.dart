@@ -119,8 +119,22 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
-                                  AddAction(label: "My Genotype"),
-                                  AddAction(label: "My Patner's"),
+                                  AddAction(
+                                    label: "My Genotype",
+                                    title: model.p1?.name ?? null,
+                                    onTap: () {
+                                      model.p1 = model.genotypes[0];
+                                    },
+                                    bgColor: model.p1?.color ?? grey,
+                                  ),
+                                  AddAction(
+                                    label: "My Patner's",
+                                    title: model.p2?.name ?? null,
+                                    onTap: () {
+                                      model.p2 = model.genotypes[2];
+                                    },
+                                    bgColor: model.p2?.color ?? grey,
+                                  ),
                                 ],
                               ),
                               Padding(

@@ -12,7 +12,7 @@ class GenotypeViewModel extends BaseModel {
   List<Genotype> _genotypes = [
     Genotype(name: "AA", color: Colors.lightBlue),
     Genotype(name: "AS", color: Colors.lightGreen),
-    Genotype(name: "SS", color: Colors.yellow),
+    Genotype(name: "SS", color: Colors.orange),
     Genotype(name: "SC", color: Colors.red),
     Genotype(name: "CC", color: Colors.amber),
   ];
@@ -49,6 +49,7 @@ class GenotypeViewModel extends BaseModel {
       resultColor = red;
       resultIcon = FeatherIcons.x;
     }
+    notifyListeners();
 
     return;
   }

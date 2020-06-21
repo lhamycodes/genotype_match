@@ -71,7 +71,16 @@ class AddAction extends StatelessWidget {
                     color: Colors.white,
                     size: 25,
                   )
-                : Text(title),
+                : Center(
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
           ),
           onTap: onTap,
         ),
