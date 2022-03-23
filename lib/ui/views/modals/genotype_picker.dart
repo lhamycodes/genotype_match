@@ -7,14 +7,12 @@ import '../../widgets/text_link.dart';
 import '../../../models/genotype.dart';
 
 class GenotypePicker extends StatefulWidget {
-  final ScrollController scrollController;
   final List<Genotype> genotypes;
   final Function onSelect;
   final Genotype genotype;
 
   const GenotypePicker({
     Key key,
-    this.scrollController,
     this.genotypes,
     this.onSelect,
     this.genotype,

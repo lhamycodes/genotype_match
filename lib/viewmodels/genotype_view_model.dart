@@ -34,8 +34,7 @@ class GenotypeViewModel extends BaseModel {
       expand: false,
       context: ctx,
       backgroundColor: Colors.transparent,
-      builder: (context, scrollController) => GenotypePicker(
-        scrollController: scrollController,
+      builder: (context) => GenotypePicker(
         genotypes: genotypes,
         genotype: gen,
         onSelect: (Genotype genotype) {

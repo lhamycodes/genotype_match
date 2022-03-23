@@ -37,8 +37,7 @@ class BloodGroupViewModel extends BaseModel {
       expand: false,
       context: ctx,
       backgroundColor: Colors.transparent,
-      builder: (context, scrollController) => BloodGroupPicker(
-        scrollController: scrollController,
+      builder: (context) => BloodGroupPicker(
         bloodGroups: bloodGroups,
         bloodGroup: bGrp,
         onSelect: (BloodGroup bloodGroup) {
